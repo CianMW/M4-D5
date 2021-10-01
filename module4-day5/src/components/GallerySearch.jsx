@@ -1,31 +1,28 @@
 import { Container, Row, Col } from "bootstrap";
 import { Component } from "react";
 
-class Gallery3 extends Component {
+class GallerySearch extends Component {
   state = {
     results: [],
+    search: this.props.search
   };
   getFetch = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=2acb287b&s=star%20wars",
+        "http://www.omdbapi.com/?apikey=2acb287b&s=" + this.props.search,
         {
           method: "GET",
         }
       );
       if (response.ok) {
         let data = await response.json();
-        this.setState({ results:data.Search });
+        this.setState({...this.state, results: data.Search });
         console.log(data);
       }
     } catch (error) {
       console.log(error);
     }
   };
-
-  Number = () => {
-    return (Math.floor(Math.random()*100))
-  }
   componentDidMount = () => {
     this.getFetch();
   };
@@ -34,7 +31,7 @@ class Gallery3 extends Component {
       <>
         {this.state.results.length > 0
           ? this.state.results.map((show) => (
-                <div key={show.imdbID + Number()} className="col ">
+                <div className="col ">
                   <img
                     src={show.Poster}
                     alt="movie image 0"
@@ -49,4 +46,4 @@ class Gallery3 extends Component {
   }
 }
 
-export default Gallery3;
+export default GallerySearch;

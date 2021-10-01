@@ -22,6 +22,9 @@ class Gallery2 extends Component {
       console.log(error);
     }
   };
+  Number = () => {
+    return (Math.floor(Math.random()*100))
+  }
   componentDidMount = () => {
     this.getFetch();
   };
@@ -30,7 +33,7 @@ class Gallery2 extends Component {
       <>
         {this.state.results.length > 0
           ? this.state.results.map((show) => (
-                <div className="col ">
+                <div key={show.imdbID + Number()} className="col ">
                   <img
                     src={show.Poster}
                     alt="movie image 0"

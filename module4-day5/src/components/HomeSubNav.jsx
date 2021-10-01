@@ -3,9 +3,16 @@ import Gallery1 from "./Gallery1"
 import Gallery3 from "./Gallery3"
 import Gallery2 from "./Gallery2"
 import icon1 from '../assets/icons/text-file-6-48.png'
+import  {Component} from "react"
+import GallerySearch from "./GallerySearch"
 
 
-const HomeSubNav = () => {
+class HomeSubNav extends Component {
+
+    state = {
+        search : ''
+    }
+    render() {
     return (
         <div>
   <div id="subNav">
@@ -44,18 +51,26 @@ const HomeSubNav = () => {
             <img src={icon1} height={30} alt="icon" />
           </a>
           <a href="#">
-           <input type="text" placeholder="Search" onChange={getSearchData(e)}></input>
+           <input type="text" placeholder="Search" value={this.state.search} onChange={event => this.setState({search: event.target.value})}></input> 
           </a>
         </div>
       </div>
     </div>
   </div>
+   { this.state.search.length > 4 ?  
+   <div className="container-fluid text-left mt-4 pl-lg-5">
+   <h3 className="section-title text-white">Searching for : {this.state.search}</h3>
+   <Row className=" row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 mb-4" style={{width:"100",flexWrap: "nowrap", overflowX: "hidden", whiteSpace: "pre-wrap",  }}>
+   <GallerySearch search={this.state.search.toLocaleLowerCase()}/> 
+ </Row> 
+ </div> :
   <div className="container-fluid text-left mt-4 pl-lg-5">
     <h3 className="section-title text-white">Harry Potter</h3>
     <Row className=" row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 mb-4" style={{width:"100",flexWrap: "nowrap", overflowX: "hidden", whiteSpace: "pre-wrap",  }}>
     <Gallery2/>
-  </Row>
-  </div>
+  </Row> 
+  </div> }
+
 
   <div className="container-fluid text-left mt-4 pl-lg-5">
     <h3 className="section-title text-white">Batman</h3>
@@ -64,7 +79,7 @@ const HomeSubNav = () => {
   </Row>
   </div>
   <div className="container-fluid text-left mt-4 pl-lg-5">
-    <h3 className="section-title text-white">Spider Man</h3>
+    <h3 className="section-title text-white">Star Wars</h3>
     <Row className=" row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 mb-4" style={{width:"100",flexWrap: "nowrap", overflowX: "hidden", whiteSpace: "pre-wrap",  }}>
     <Gallery3/>
   </Row>   
@@ -72,4 +87,5 @@ const HomeSubNav = () => {
 </div>
 
     )}
+}
     export default HomeSubNav
