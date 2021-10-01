@@ -61,7 +61,7 @@ class HomeSubNav extends Component {
    <div className="container-fluid text-left mt-4 pl-lg-5">
    <h3 className="section-title text-white">Searching for : {this.state.search}</h3>
    <Row className=" row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 mb-4" style={{width:"100",flexWrap: "nowrap", overflowX: "hidden", whiteSpace: "pre-wrap",  }}>
-   <GallerySearch search={this.state.search.toLocaleLowerCase()}/> 
+   <GallerySearch search={this.state.search.toLowerCase()}/> 
  </Row> 
  </div> :
   <div className="container-fluid text-left mt-4 pl-lg-5">

@@ -4,7 +4,7 @@ import { Component } from "react";
 class GallerySearch extends Component {
   state = {
     results: [],
-    search: this.props.search
+   
   };
   getFetch = async () => {
     try {
@@ -16,8 +16,11 @@ class GallerySearch extends Component {
       );
       if (response.ok) {
         let data = await response.json();
-        this.setState({...this.state, results: data.Search });
-        console.log(data);
+        if(data.Search) {
+  this.setState({ results: data.Search });
+        }
+       
+        console.log({data});
       }
     } catch (error) {
       console.log(error);
@@ -26,6 +29,11 @@ class GallerySearch extends Component {
   componentDidMount = () => {
     this.getFetch();
   };
+  componentDidUpdate=(prevProps)=>{
+    if(prevProps.search !== this.props.search) {
+      this.getFetch()
+    }
+  }
   render() {
     return (
       <>
