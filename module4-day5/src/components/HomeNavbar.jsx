@@ -1,10 +1,10 @@
 import logo from '../assets/netflix_logo.png'
 import kids from '../assets/kids_icon.png'
 import avatar from '../assets/avatar.png'
-import homecss from '../css/HomeNavbar.css'
 import bell from '../assets/bell.png'
 import {ArrowRight} from 'react-bootstrap-icons'
-
+import { Link, withRouter } from 'react-router-dom'
+import homecss from '../css/HomeNavbar.css'
 const HomeNavbar = () => {
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
@@ -25,9 +25,11 @@ const HomeNavbar = () => {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-        <a className="nav-link txt" href="#">
+        <Link to="/home">
+        <p className="nav-link txt">
           Home <span className="sr-only" />
-        </a>
+        </p>
+        </Link>
       </li>
       <li className="nav-item">
         <a className="nav-link txt" href="#">

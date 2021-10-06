@@ -7,6 +7,7 @@ import  {Component} from "react"
 import GallerySearch from "./GallerySearch"
 import { Button } from "react-bootstrap"
 import { Spinner } from "react-bootstrap"
+import HomeFooter from "./HomeFooter"
 
 class HomeSubNav extends Component {
 
@@ -102,7 +103,9 @@ class HomeSubNav extends Component {
     <Gallery3/>
   </Row>   
   </div>
+  <HomeFooter />
 </div>
+
 
     )}
 }

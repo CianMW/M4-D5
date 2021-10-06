@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "bootstrap";
 import { Component } from "react";
 import {Button, Spinner} from "react-bootstrap"
+import { Link } from "react-router-dom";
 
 class Gallery1 extends Component {
   state = {
