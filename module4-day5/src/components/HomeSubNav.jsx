@@ -5,12 +5,30 @@ import Gallery2 from "./Gallery2"
 import icon1 from '../assets/icons/text-file-6-48.png'
 import  {Component} from "react"
 import GallerySearch from "./GallerySearch"
-
+import { Button } from "react-bootstrap"
+import { Spinner } from "react-bootstrap"
 
 class HomeSubNav extends Component {
 
     state = {
-        search : ''
+        search : '' ,
+        loaded: <Gallery1/>
+    }
+
+
+
+    Loading = () => {
+      return ( <Button variant="primary" disabled>
+      <Spinner
+        as="span"
+        animation="grow"
+        size="sm"
+        role="status"
+        aria-hidden="true"
+      />
+      Loading...
+    </Button>
+  )
     }
     render() {
     return (
@@ -75,7 +93,7 @@ class HomeSubNav extends Component {
   <div className="container-fluid text-left mt-4 pl-lg-5">
     <h3 className="section-title text-white">Batman</h3>
     <Row className=" row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 mb-4" style={{width:"100",flexWrap: "nowrap", overflowX: "hidden", whiteSpace: "pre-wrap",  }}>
-    <Gallery1/>
+   <Gallery1/> 
   </Row>
   </div>
   <div className="container-fluid text-left mt-4 pl-lg-5">

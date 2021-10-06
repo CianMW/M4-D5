@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "bootstrap";
 import { Component } from "react";
+import {Button, Spinner} from "react-bootstrap"
 
 class Gallery1 extends Component {
   state = {
@@ -42,7 +43,16 @@ class Gallery1 extends Component {
                   />
                 </div>
             ))
-          : 0}
+          : <Button variant="primary" disabled>
+          <Spinner
+            as="span"
+            animation="grow"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+          />
+          Loading...
+        </Button>}
       </>
     );
   }
