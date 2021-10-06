@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "bootstrap";
 import { Component } from "react";
 import {Button, Spinner} from "react-bootstrap"
+import { Link } from "react-router-dom";
 class Gallery3 extends Component {
   state = {
     results: [],
@@ -41,6 +42,7 @@ class Gallery3 extends Component {
                     className="img-fluid rounded my-2"
                    style={{height: "80%", width: "80%"}}
                   />
+                  <Link to={"/details/"+show.imdbID}><Button variant="light">More Info</Button></Link>
                 </div>
             ))
           : <Button variant="primary" disabled>

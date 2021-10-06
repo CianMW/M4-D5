@@ -11,8 +11,7 @@ function App() {
     <div className="App">
       <Router>
       <HomeNavbar />
-      <MovieDetails />
-     <Route path="/moviedetails/:id" exact component={MovieDetails} />
+     <Route path="/details/:Id" exact component={MovieDetails} />
      <Route path="/home" exact component={HomeSubNav} />
     </Router>
     </div>
